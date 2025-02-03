@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../styles/login.css";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -33,45 +34,46 @@ function Login() {
   }
 
   return (
+    <div className={isLoggedIn ? "logged-in-container" : "login-container"}>
+  {!isLoggedIn ? (
     <div>
-      {!isLoggedIn ? (
-        <div>
-          <h2>Connexion</h2>
-          <form onSubmit={handleLogin}>
-            <input
-              type="email"
-              placeholder="Email"
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <input
-              type="password"
-              placeholder="Mot de passe"
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <button type="submit">Se connecter</button>
-          </form>
-        </div>
-      ) : (
-        <div>
-          <h2>Bienvenue, {email}</h2>
-          <h3>Rendez-vous disponibles</h3>
-          <ul>
-            {appointments.length > 0 ? (
-              appointments.map((appt) => (
-                <li key={appt.id}>
-                  {appt.date} à {appt.time}
-                </li>
-              ))
-            ) : (
-              <p>Aucun rendez-vous disponible pour le moment.</p>
-            )}
-          </ul>
-          <button onClick={handleLogout}>Se déconnecter</button>
-        </div>
-      )}
+      <h2>Connexion</h2>
+      <form className="login-form" onSubmit={handleLogin}>
+        <input
+          type="email"
+          placeholder="Email"
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Mot de passe"
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button type="submit">Se connecter</button>
+      </form>
     </div>
+  ) : (
+    <div>
+      <h2>Bienvenue, {email}</h2>
+      <h3>Rendez-vous disponibles</h3>
+      <ul>
+        {appointments.length > 0 ? (
+          appointments.map((appt) => (
+            <li key={appt.id}>
+              {appt.date} à {appt.time}
+            </li>
+          ))
+        ) : (
+          <p>Aucun rendez-vous disponible pour le moment.</p>
+        )}
+      </ul>
+      <button onClick={handleLogout}>Se déconnecter</button>
+    </div>
+  )}
+</div>
+
   );
 }
 

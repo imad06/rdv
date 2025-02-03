@@ -1,36 +1,128 @@
+/* login.css */
+
+/* Container de la page de login */
 .login-container {
-    width: 300px;
-    margin: 50px auto;
-    padding: 20px;
-    background: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    text-align: center;
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+/* Titre de la page */
+.login-container h2 {
+  text-align: center;
+  color: #333;
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Formulaire de connexion */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-form input {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  color: #333;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+.login-form input:focus {
+  border-color: #4C9FF0;
+  outline: none;
+}
+
+.login-form button {
+  padding: 15px;
+  background-color: #4C9FF0;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #3e89c2;
+}
+
+/* Style après connexion */
+.logged-in-container {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.logged-in-container h2 {
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.logged-in-container h3 {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.logged-in-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.logged-in-container ul li {
+  background-color: #eff2f7;
+  padding: 12px;
+  border-radius: 6px;
+  margin: 8px 0;
+  color: #333;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logged-in-container button {
+  margin-top: 20px;
+  background-color: #f44336;
+}
+
+.logged-in-container button:hover {
+  background-color: #d32f2f;
+}
+
+/* Responsive design pour la page de login */
+@media (max-width: 768px) {
+  .login-container, .logged-in-container {
+    padding: 30px;
+    width: 90%;
   }
-  
-  .login-container h2 {
-    margin-bottom: 15px;
+
+  .login-container h2, .logged-in-container h2 {
+    font-size: 24px;
   }
-  
-  .login-container input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+
+  .login-form input, .login-form button, .logged-in-container button {
+    font-size: 14px;
+    padding: 12px;
   }
-  
-  .login-container button {
-    width: 100%;
-    padding: 10px;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .login-container button:hover {
-    background: #0056b3;
-  }
-  
+}
