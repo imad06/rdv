@@ -1,24 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Home from "./pages/Home";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import Appointment from "./pages/Appointment";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const [page, setPage] = useState("home");
+
+  function navigate(pageName) {
+    setPage(pageName);
+  }
+
+  return React.createElement(
+    "div",
+    null,
+    React.createElement(
+      "nav",
+      null,
+      React.createElement(
+        "button",
+        { onClick: () => navigate("home") },
+        "Accueil"
+      ),
+      React.createElement(
+        "button",
+        { onClick: () => navigate("signup") },
+        "Inscription"
+      ),
+      React.createElement(
+        "button",
+        { onClick: () => navigate("login") },
+        "Connexion"
+      ),
+      React.createElement(
+        "button",
+        { onClick: () => navigate("appointment") },
+        "Prendre un Rendez-Vous"
+      )
+    ),
+    page === "home"
+      ? React.createElement(Home)
+      : page === "signup"
+      ? React.createElement(Signup)
+      : page === "login"
+      ? React.createElement(Login)
+      : React.createElement(Appointment)
   );
 }
 
