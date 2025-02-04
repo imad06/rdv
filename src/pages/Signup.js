@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../styles/signup.css";
-import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 function Signup() {
@@ -28,7 +27,7 @@ function Signup() {
 
   return (
     <div className="signup">
-      <Navbar />
+     
       <div className="signup-container">
         <h2>Créer un compte</h2>
         <form className="signup-form" onSubmit={handleSubmit}>

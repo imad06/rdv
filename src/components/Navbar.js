@@ -1,18 +1,16 @@
 import React from "react";
 import "../styles/navbar.css";
 
-function Navbar() {
-  return React.createElement(
-    "nav",
-    { className: "navbar" },
-    React.createElement("h2", null, "Cabinet Dentaire"),
-    React.createElement(
-      "ul",
-      null,
-      React.createElement("li", null, React.createElement("a", { href: "/" }, "Accueil")),
-      React.createElement("li", null, React.createElement("a", { href: "/login" }, "Se connecter")),
-      React.createElement("li", null, React.createElement("a", { href: "/signup" }, "S'inscrire"))
-    )
+function Navbar({ navigate }) {  // Ajouter navigate en paramètre
+  return (
+    <nav className="navbar">
+      <h2>Cabinet Dentaire</h2>
+      <ul>
+        <li><button onClick={() => navigate("home")}>Accueil</button></li>
+        <li><button onClick={() => navigate("login")}>Se connecter</button></li>
+        <li><button onClick={() => navigate("signup")}>S'inscrire</button></li>
+      </ul>
+    </nav>
   );
 }
 

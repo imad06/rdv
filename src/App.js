@@ -3,6 +3,8 @@ import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Appointment from "./pages/Appointment";
+import Navbar from "./components/Navbar"; // Ajoute Navbar ici
+import "./styles/navbar.css"; // Importation du CSS pour Navbar
 
 function App() {
   const [page, setPage] = useState("home");
@@ -11,40 +13,14 @@ function App() {
     setPage(pageName);
   }
 
-  return React.createElement(
-    "div",
-    null,
-    React.createElement(
-      "nav",
-      null,
-      React.createElement(
-        "button",
-        { onClick: () => navigate("home") },
-        "Accueil"
-      ),
-      React.createElement(
-        "button",
-        { onClick: () => navigate("signup") },
-        "Inscription"
-      ),
-      React.createElement(
-        "button",
-        { onClick: () => navigate("login") },
-        "Connexion"
-      ),
-      React.createElement(
-        "button",
-        { onClick: () => navigate("appointment") },
-        "Prendre un Rendez-Vous"
-      )
-    ),
-    page === "home"
-      ? React.createElement(Home)
-      : page === "signup"
-      ? React.createElement(Signup)
-      : page === "login"
-      ? React.createElement(Login)
-      : React.createElement(Appointment)
+  return (
+    <div>
+      <Navbar navigate={navigate} /> {/* Passe navigate comme prop */}
+      {page === "home" && <Home />}
+      {page === "signup" && <Signup />}
+      {page === "login" && <Login />}
+      {page === "appointment" && <Appointment />}
+    </div>
   );
 }
 
